@@ -45,10 +45,19 @@ if (isMobile.any()) {
   document.body.classList.add('_pc');
 }
 
+// Menu burger
+const iconMenu = document.querySelector('.menu__icon');
+const menuBody = document.querySelector('.menu__body');
+if (iconMenu) {
+  iconMenu.addEventListener("click", function (e) {
+    document.body.classList.toggle('_lock');
+    iconMenu.classList.toggle('_active');
+    menuBody.classList.toggle('_active');
+  });
+}
 // Прокрутка по клику
 
-
-const menuLinks = document.querySelectorAll('.menu-link[data-goto]');
+const menuLinks = document.querySelectorAll('.menu__link[data-goto]');
 if (menuLinks.length > 0) {
   menuLinks.forEach(menuLink => {
     menuLink.addEventListener("click", onMenuLinkClick);
