@@ -1,0 +1,98 @@
+@media (min-width: 767px)
+  .menu
+    &__list
+      display: flex
+      align-items: center
+      li
+        padding: 20px 0
+    &__sub
+      &-list
+        top: 70px
+        transform: translate(0px, 10%)
+        opacity: 0
+        visibility: hidden
+        pointer-events: none
+        transition: all 0.3s ease 0s
+  body._touch
+  .menu
+    &__arrow
+      margin: 0 0 0 5px
+
+@media (max-width: 767px)
+  .menu
+    &__icon
+      z-index: 5
+      display: block
+      position: relative
+      width: 30px
+      height: 18px
+      cursor: pointer
+      span, &::before, &::after
+        left: 0
+        position: absolute
+        height: 10%
+        width: 100%
+        transition: all 0.3s ease 0s
+        background-color: #fff
+      &::before, &::after
+        content: ''
+      &::before
+        top: 0
+      &::after
+        bottom: 0
+      span
+        top: 50%
+        transform: scale(1) translate(0px, -50%)
+      &._active
+        span
+          transform: scale(0) translate(0px, -50%)
+        &::before
+          top: 50%
+          transform: rotate(-45deg) translate(0px, -50%)
+        &::after
+          bottom: 50%
+          transform: rotate(45deg) translate(0px, 50%)
+    &__body
+      position: fixed
+      top: 0
+      right: 0
+      width: 100%
+      height: 100%
+      background-color: #2D4257
+      padding: 100px 0px 30px 30px
+      transition: right 0.3s ease 0s
+      overflow: auto
+      &._active
+        right: 0
+      &::before
+        content: ""
+        position: fixed
+        width: 100%
+        top: 0
+        left: 0
+        height: 70px
+        background: #222831
+
+    &__list > li
+      flex-wrap: wrap
+      margin: 0 0 30px 0
+      &:last-child
+        margin-bottom: 130px
+      &._active .menu
+        &__sub
+          &-list
+            display: block
+    &__link
+      font-size: 24px
+    &__arrow
+      margin-right: 30px
+    &__sub
+      &-list
+        position: relative
+        background: #fff
+        flex: 1 1 100%
+        margin: 20px 20px 0 0
+        display: none
+      &-link
+        font-size: 20px
+        color: #000
